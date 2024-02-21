@@ -1,0 +1,40 @@
+﻿@page "/admin/program/create"
+
+@attribute [Authorize(Policy = nameof(UserRole.Admin))]
+
+<MudStack Row Justify="Justify.SpaceBetween">
+    <MudIconButton Color="Color.Dark" Icon="@Icons.Material.Rounded.ArrowBack" Href="/"/>
+    <MudText Color="Color.Dark" Typo="Typo.h4">
+        Program Creator
+    </MudText>
+</MudStack>
+
+<MudCard Class="mud-width-full pa-4">
+    <MudForm @ref="_form" @bind-IsValid="@_formValid" @bind-Errors="@_errors">
+
+                <MudSelect T="string" Label="Duration">
+                    <MudSelectItem Value="@("5 Week")"/>
+                    <MudSelectItem Value="@("12 Weeks (Default)")"/>
+                    <MudSelectItem Value="@("20 Weeks")"/>
+                    <MudSelectItem Value="@("50 Weeks")"/>
+                </MudSelect>
+                
+            <MudDatePicker Date="DateTime.Today" Label="Start"/>
+    </MudForm>   
+</MudCard>
+
+<MudStack Row Justify="Justify.Center" Class="mt-4">
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Info"
+               Disabled="@(!_formValid)">
+        Register
+    </MudButton>
+</MudStack>
+
+@code
+{
+    private bool _formValid;
+    
+    string[] _errors = { };
+    MudForm _form;
+}

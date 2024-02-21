@@ -1,0 +1,62 @@
+﻿@inject NavigationManager NavigationManager
+
+<Header />
+
+<MudCard Class="pa-4 mt-4 rounded-xl">
+    <MudStack Row Justify="Justify.SpaceBetween">
+        <MudText Typo="Typo.h5">
+            Next merch drop
+        </MudText>
+        <MudText Typo="Typo.h3" Style="font-size: 1.5rem">
+            <MudStack Row>
+                Good morning!
+                <MudIcon Icon="@Icons.Material.Rounded.WbSunny"/>
+            </MudStack>
+        </MudText>
+    </MudStack>
+    
+    <MudAlert Severity="Severity.Info">
+        Weekly goodies #5
+    </MudAlert>
+</MudCard>
+
+<MudCard Class="mt-4 pa-4 rounded-xl">
+    <MudStack Row Justify="Justify.SpaceBetween">
+        <MudText Typo="Typo.h5">
+            Suggested Items
+        </MudText>
+        <MudChip Color="Color.Secondary">
+            Trending
+        </MudChip>
+    </MudStack>
+    
+    <MudStack Row Class="flex-wrap" AlignItems="AlignItems.Center" Justify="Justify.Center">
+        @for (var i = 0; i < 3; i++)
+        {
+            <MudCard>
+                <MudCardMedia Image="https://picsum.photos/200/300" Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">Old Paint</MudText>
+                    <MudText Typo="Typo.body2">Old paint found on a stone house door.</MudText>
+                    <MudText Typo="Typo.body2">This photo was taken in a small village in Istra Croatia.</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Shop</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Secondary">Learn More</MudButton>
+                </MudCardActions>
+            </MudCard>
+        }
+    </MudStack>
+   
+    <MudStack Row Align="Align.SpaceBetween" Class="mt-2">
+        <MudChip Color="Color.Info">
+            Top 100
+        </MudChip>
+        <MudChip Color="Color.Success">
+            New Releases
+        </MudChip>
+        <MudChip Color="Color.Error">
+            Highest Rated
+        </MudChip>               
+    </MudStack>
+</MudCard>

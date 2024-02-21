@@ -1,0 +1,13 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+    <MudAppBar Elevation="1" Bottom>
+        <NavMenu />
+    </MudAppBar>
+
+    <MudMainContent Class="pa-4" Style="margin-bottom: var(--mud-appbar-height);">
+        <div>
+            @Body
+        </div>
+    </MudMainContent>
+</MudLayout>

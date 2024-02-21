@@ -1,0 +1,43 @@
+﻿@using System.Reflection
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="@AdditionalAssemblies">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <Authorizing>
+                    <MudProgressLinear Indeterminate/>
+                </Authorizing>
+                <NotAuthorized>
+                    @if (context.User.Identity?.IsAuthenticated is false or null)
+                    {
+                        <RedirectToLogin/>
+                    }
+                    else
+                    {
+                        <MudAlert Severity="Severity.Error">
+                            You don't have permission to view that page
+                        </MudAlert>
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+<MyShopThemeProvider />
+
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+@code {
+
+    protected virtual Assembly[]? AdditionalAssemblies { get; set; }
+
+}

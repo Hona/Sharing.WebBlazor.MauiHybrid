@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2"/>
+        <PackageReference Include="MudBlazor" Version="6.16.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\fonts\BukhariScript-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\fonts\OpenSans-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\appicon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\awards\bronze.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\awards\diamond.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\awards\gold.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\awards\sapphire.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\awards\silver.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\wwwroot\img\players.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\appicon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\awards\bronze.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\awards\diamond.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\awards\gold.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\awards\sapphire.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\awards\silver.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\players.jpg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\MyShop.Shared\MyShop.Shared.csproj" />
+      <ProjectReference Include="..\MyShop.ApiClient\MyShop.ApiClient.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\Index\Parent\ParentIndexPage.razor" />
+      <UpToDateCheckInput Remove="Pages\QR\ScanQrCodePage.razor" />
+    </ItemGroup>
+
+</Project>

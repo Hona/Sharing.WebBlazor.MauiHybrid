@@ -1,0 +1,12 @@
+﻿@page "/"
+
+@using MyShop.UI.Shared.Pages.Index.Admin
+@using MyShop.UI.Shared.Pages.Index.User
+
+<AuthorizeView Policy="@nameof(UserRole.Admin)">
+    <AdminIndexPage />
+</AuthorizeView>
+
+<AuthorizeView Policy="@nameof(UserRole.User)">
+    <UserIndexPage />
+</AuthorizeView>

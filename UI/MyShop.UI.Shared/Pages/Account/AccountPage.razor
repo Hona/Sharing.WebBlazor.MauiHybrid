@@ -1,0 +1,26 @@
+﻿@page "/account"
+
+@inject ICrossPlatformAuthenticationStateProvider AuthenticationStateProvider
+
+<Header />
+
+<MudText Typo="Typo.h5" Color="Color.Primary">
+    Account
+</MudText>
+
+<MudCard>
+    <MudCardContent>
+        <MudButton Color="Color.Error" OnClick="Logout">
+            Sign out
+        </MudButton>
+    </MudCardContent>
+</MudCard>
+
+@code 
+{
+    public void Logout()
+    {
+        AuthenticationStateProvider
+            .LogOut();
+    }
+}

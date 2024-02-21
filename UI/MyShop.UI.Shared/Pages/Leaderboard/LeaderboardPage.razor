@@ -1,0 +1,38 @@
+﻿@page "/leaderboard"
+
+@inject WeatherForecastClient WeatherForecastClient
+
+<MudTable Items="_forecasts" Loading="_loading">
+    <HeaderContent>
+        <MudTh>Date</MudTh>
+        <MudTh>Temp (C)</MudTh>
+        <MudTh>Temp (F)</MudTh>
+        <MudTh>Summary</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Date">@context.Date</MudTd>
+        <MudTd DataLabel="Temp (C)">@context.TemperatureC</MudTd>
+        <MudTd DataLabel="Temp (F)">@context.TemperatureF</MudTd>
+        <MudTd DataLabel="Summary">@context.Summary</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code
+{
+    private WeatherForecast[]? _forecasts;
+    private bool _loading;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+
+        try
+        {
+            _forecasts = await WeatherForecastClient.GetForecastAsync();
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+}

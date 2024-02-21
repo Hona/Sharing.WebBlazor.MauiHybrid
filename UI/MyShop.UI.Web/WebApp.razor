@@ -1,0 +1,12 @@
+﻿@using System.Reflection
+@inherits App
+
+@{
+    base.BuildRenderTree(__builder);
+}
+
+@code {
+
+    protected override Assembly[]? AdditionalAssemblies { get; set; } = new Assembly[] { typeof(WebApp).Assembly };
+
+}

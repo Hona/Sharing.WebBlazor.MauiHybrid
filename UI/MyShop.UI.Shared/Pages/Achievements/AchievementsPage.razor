@@ -1,0 +1,40 @@
+﻿@page "/achievements"
+
+<MudStack Row Justify="Justify.SpaceBetween">
+    <MudIconButton Color="Color.Dark" Icon="@Icons.Material.Rounded.ArrowBack" Href="/"/>
+    <MudText Color="Color.Dark" Typo="Typo.h4">
+        Achievements
+    </MudText>
+</MudStack>
+
+@*TODO: Round it all together*@
+<MudTabs Elevation="2" ApplyEffectsToContainer="true">
+    <MudTabPanel Text="Unlocked">
+        <MudPaper Class="pa-4" Square>
+            <MudText Typo="Typo.h5">
+                Bronze
+            </MudText>
+            
+            <MudStack Row Class="flex-wrap">
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudText Align="Align.Center">Frenzy Shopper</MudText>
+                </MudStack>
+            </MudStack>
+            
+            <MudText Typo="Typo.h5" Class="mt-4">
+                Silver
+            </MudText>
+            
+            <MudStack Row Class="flex-wrap" >
+                <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+                    <MudText>Exclusive Items</MudText>
+                </MudStack>
+            </MudStack>
+        </MudPaper>
+    </MudTabPanel>
+    <MudTabPanel Text="All">
+       <MudPaper>
+           
+       </MudPaper>
+    </MudTabPanel>
+</MudTabs>

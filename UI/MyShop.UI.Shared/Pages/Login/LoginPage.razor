@@ -1,0 +1,38 @@
+﻿@layout EmptyLayout
+@attribute [AllowAnonymous]
+@page "/login"
+@using MyShop.UI.Shared.Shared
+
+@inject ICrossPlatformAuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<MudStack Justify="Justify.Center" AlignItems="AlignItems.Center" Spacing="16" Style="height: 100vh;">
+    <div>
+        <MudImage Src="_content/MyShop.UI.Shared/img/logo.png" Height="256" Width="256"/>
+        <MudText Typo="Typo.h3" Align="Align.Center">
+            My Shop
+        </MudText>
+    </div>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Login">
+        Login
+    </MudButton>
+    
+    <AuthorizeView>
+        <Authorized>
+            Authorized
+            
+            <MudNavLink Href="/">Go home</MudNavLink>
+        </Authorized>
+    </AuthorizeView>
+</MudStack> 
+
+@code {
+    public async Task Login()
+    {
+        await AuthenticationStateProvider
+            .LogInAsync();
+        
+        NavigationManager.NavigateTo("/");
+    }
+}
